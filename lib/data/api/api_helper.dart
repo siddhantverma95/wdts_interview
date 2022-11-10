@@ -21,7 +21,7 @@ class ApiHelperImpl extends ApiHelper {
   Future<Either<CustomException, Pets>> executeList(String api) async {
     try {
       final response = await _api.get(api);
-      return Right(Pets.fromJson(response.data));
+      return Right(Pets.fromMap(response.data));
     } on CustomException catch (e) {
       return Left(e);
     }

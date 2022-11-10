@@ -68,6 +68,7 @@ class _QrCodeScannerState extends State<QrCodeScanner> {
     this.controller = controller;
     if (widget.endpoint == null) {
       controller.scannedDataStream.listen((scanData) {
+        debugPrint('QR DATA: ${scanData.code}');
         Provider.of<ViewModel>(context, listen: false).add(scanData.code ?? '');
       });
     } else {
